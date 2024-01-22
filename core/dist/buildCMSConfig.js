@@ -32,8 +32,9 @@ function getCMSConfig() {
 }
 exports.getCMSConfig = getCMSConfig;
 function getCMSInstance(name) {
-    if (!_config)
+    if (!_config) {
         throw Error("Called getCMSInstance() before buildCMSConfig()");
+    }
     if (!_config?.instances || !_config?.instances?.length)
         throw Error("Called getCMSInstance() without setting `instances` in your CMS config");
     return name
