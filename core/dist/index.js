@@ -16,8 +16,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stripTrailingSlash = exports.getCMSInstance = exports.getCMSConfig = exports.buildCMSConfig = void 0;
 __exportStar(require("./types"), exports);
-// Bundle `render-blocks` into `cloakcms` so users don't need to install it:
-__exportStar(require("render-blocks"), exports);
+// Bundle `@kaelan/render-blocks` into `cloakcms` so users don't need to install it:
+__exportStar(require("@kaelan/render-blocks"), exports);
 var buildCMSConfig_1 = require("./buildCMSConfig");
 Object.defineProperty(exports, "buildCMSConfig", { enumerable: true, get: function () { return buildCMSConfig_1.buildCMSConfig; } });
 Object.defineProperty(exports, "getCMSConfig", { enumerable: true, get: function () { return buildCMSConfig_1.getCMSConfig; } });

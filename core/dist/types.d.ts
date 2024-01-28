@@ -1,5 +1,5 @@
 import type { Plugin } from "@kaelan/with-plugins";
-import { BlockRenderer } from "render-blocks";
+import { BlockRenderer } from "@kaelan/render-blocks";
 export { withPlugins } from "@kaelan/with-plugins";
 export { Plugin };
 export interface CMSInstance {

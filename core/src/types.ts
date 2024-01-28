@@ -1,5 +1,5 @@
 import type { Plugin } from "@kaelan/with-plugins";
-import { BlockRenderer } from "render-blocks";
+import { BlockRenderer } from "@kaelan/render-blocks";
 
 // I don't know why, but re-exporting withPlugins from index.ts causes module parsing error, while exporting from here works:
 export { withPlugins } from "@kaelan/with-plugins";
