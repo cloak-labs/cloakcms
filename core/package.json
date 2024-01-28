@@ -1,6 +1,6 @@
 {
   "name": "cloakcms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A set of low-level standards and utilities for integrating any CMS with a decoupled frontend.",
   "main": "dist/index",
   "types": "dist/index.d.ts",
