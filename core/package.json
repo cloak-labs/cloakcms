@@ -1,6 +1,6 @@
 {
   "name": "cloakcms",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A set of low-level standards and utilities for integrating any CMS with a decoupled frontend.",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@kaelan/with-plugins": "^0.0.1",
-    "@kaelan/render-blocks": "^0.0.1"
+    "@kaelan/render-blocks": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"
