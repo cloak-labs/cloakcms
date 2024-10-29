@@ -12,10 +12,11 @@
     }
   },
   "scripts": {
-    "dev": "tsc -p tsconfig.json -w",
+    "dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
     "build": "npm run build-ts",
-    "build-ts": "tsc-silent -p tsconfig.json --suppress",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "build-ts": "tsc-silent -p tsconfig.json --suppress @",
+    "clean": "rm -rf .turbo && rm -rf dist && npm run clean:modules",
+    "clean:modules": "rm -rf node_modules",
     "zzz-postpublish": "git push && git push --tags"
   },
   "repository": {
@@ -36,14 +37,14 @@
     "url": "https://github.com/cloak-labs/cloakcms/issues"
   },
   "homepage": "https://github.com/cloak-labs/cloakcms#readme",
+  "dependencies": {
+    "@kaelan/with-plugins": "^0.0.2",
+    "@kaelan/render-blocks": "^0.2.0"
+  },
   "devDependencies": {
     "@types/node": "^18.18.1",
     "tsc-watch": "^5.0.3",
     "typescript": "^5.3.2"
-  },
-  "dependencies": {
-    "@kaelan/with-plugins": "^0.0.2",
-    "@kaelan/render-blocks": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"
