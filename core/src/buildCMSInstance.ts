@@ -1,5 +1,5 @@
-import type { CMSInstance } from "./types";
 import { withPlugins } from "@kaelan/with-plugins";
+import type { CMSInstance } from "./types";
 
 /**
  * @description Builds and validates a CMSInstance configuration
