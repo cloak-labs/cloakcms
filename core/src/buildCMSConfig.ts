@@ -1,5 +1,5 @@
 import { buildCMSInstance } from "./buildCMSInstance";
-import { CMSConfig, CMSInstance } from "./types";
+import { type CMSConfig, type CMSInstance } from "./types";
 
 let _idle_config: CMSConfig;
 let _config: CMSConfig;
@@ -74,7 +74,7 @@ export async function getCMSInstanceAsync(name?: string): Promise<CMSInstance> {
   if (!_config) {
     if (!_idle_config)
       throw Error(
-        "getCMSInstance() was called before setCMSConfig() and/or buildCMSConfig()"
+        "getCMSInstanceAsync() was called before setCMSConfig() and/or buildCMSConfig()"
       );
     else {
       await buildCMSConfig(_idle_config);
