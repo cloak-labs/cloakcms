@@ -5,36 +5,37 @@ import { type BlockRenderer } from "@kaelan/render-blocks";
 export { withPlugins } from "@kaelan/with-plugins";
 export { Plugin };
 
-export interface CMSInstance {
-  /** The root URL path where your CMS admin UI is accessible. */
-  url: `http://${string}` | `https://${string}`;
-  /** The root URL path where your CMS admin UI is accessible. */
-  adminPath: "/" | `/${string}`;
-  /** The root URL path where your CMS stores content/images/files etc. */
-  contentPath: "/" | `/${string}`;
-  /** Provide a unique name for this CMS instance, allowing you to target it if you have multiple CMS instances. */
+export type Url = `http://${string}` | `https://${string}`;
+
+export type ContentSourceEnvironment = "local" | "staging" | "production";
+
+export type ContentSourceConfig = {
+  /** Provide a unique name for this Content Source to differentiate it from others. */
   name?: string;
+  /** The base URL of the Content Source. */
+  url: Url | { local: Url; staging: Url; production: Url };
+  activeEnvironment: ContentSourceEnvironment;
+  /** The root URL path where you access your Content Source's admin UI. */
+  adminPath: "/" | `/${string}`;
+  /** The root URL path where your Content Source stores file assets (images, videos, etc.) */
+  assetsPath: "/" | `/${string}`;
   /**
-   * * CMS Client ====================
-   * The CMS Client is a function/class/ORM for interacting with this CMS instance. We hold no opinions
+   * * Content Source Client ====================
+   * The client is a function/class/ORM for interacting with this Content Source. We hold no opinions
    * about how it should work -- we just provide a standardized place to store it.
    */
   client?: Function;
   blockRenderer?: BlockRenderer;
   /**
-   * `meta` can be used to store anything you want about the CMS instance.
+   * `meta` can be used to store anything you want about the Content Source.
    * It's particularly useful for plugins to store stuff.
    */
   meta?: Record<string, any>;
   /**
    * * Plugins ====================
-   * A plugin is simply a function that receives the current CMS instance config and returns a modified
+   * A plugin is simply a function that receives the current ContentSourceConfig and returns a modified
    * version for the next plugin to consume, until the final plugin returns the final config. Plugins allow
-   * you to package up reusable config options, or build better APIs for setting the CMS instance config.
+   * you to package up reusable config options, or build better APIs for setting the Content Source config.
    */
-  plugins?: Plugin<CMSInstance>[];
-}
-
-export interface CMSConfig {
-  instances: CMSInstance[];
-}
+  plugins?: Plugin<ContentSourceConfig>[];
+};
